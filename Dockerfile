@@ -8,3 +8,5 @@ RUN docker-php-ext-install pdo_mysql
 # /var/www/html/ 为 Apache 目录
 COPY  php.ini /usr/local/etc/php/
 COPY  tz.php /var/www/html/
+COPY  365.php /var/www/html/
+COPY  cqcp.php /var/www/html/
