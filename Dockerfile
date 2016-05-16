@@ -7,3 +7,5 @@ RUN docker-php-ext-install pdo_mysql
 
 # /var/www/html/ 为 Apache 目录
 COPY  . /var/www/html/
+WORKDIR /var/www/html
+RUN chmod 777 chalong.txt
