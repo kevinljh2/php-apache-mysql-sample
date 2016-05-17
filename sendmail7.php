@@ -8,7 +8,7 @@ ini_set('date.timezone','Asia/Shanghai');
 	$smtpemailto ="2971282988@qq.com";
 	$smtpuser = "kevinljh7";
 	$smtppass = "5533531531";
-	$mailtitle =$_GET["tou"];
+	$mailtitle =date("Y-m-d H:i:s");
 	$mailcontent = "<h1>".$_GET["text"]."</h1>";
 	$mailtype = "HTML";
 
