@@ -1,4 +1,5 @@
 <?php
+ini_set('date.timezone','Asia/Shanghai');
 $to = "2971282988@qq.com";
 $subject =date('H:i:s');
 $message =$subject;
