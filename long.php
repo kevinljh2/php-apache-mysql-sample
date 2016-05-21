@@ -32,7 +32,7 @@ $count=$namearr1[1];
 $out1=$name1.",".$nametz.",".$count; 
 $out2.=$out1."<br>";
 
-if ($count>=14)
+if ($count>=9)
 {
 $mailbool=true;
 }
