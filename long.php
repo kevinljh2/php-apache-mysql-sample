@@ -44,12 +44,13 @@ echo "</body></html>";
 
 if ($mailbool==true)
 {
+$mailbool=false;
 $urla="http://kevinljh2-wp.daoapp.io/sendmail6.php?text=".$out3;
 $cha = curl_init(); 
 curl_setopt ($cha, CURLOPT_URL, $urla); 
 curl_setopt ($cha, CURLOPT_RETURNTRANSFER, 1); 
 curl_setopt ($cha, CURLOPT_CONNECTTIMEOUT,10); 
-$dataa = curl_exec($ch); 
+$dataa = curl_exec($cha); 
 }
 
 ?>
