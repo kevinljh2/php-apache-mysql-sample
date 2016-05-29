@@ -9,3 +9,7 @@ RUN docker-php-ext-install pdo_mysql
 COPY  . /var/www/html/
 WORKDIR /var/www/html
 RUN chmod 777 chalong.txt
+RUN chmod 777 tiebaid.txt
+RUN chmod 777 tiebapid.txt
+RUN chmod 777 tieidnew.txt
+RUN chmod 777 urlid.txt
