@@ -35,7 +35,7 @@ $out2.=$out1."<br>";
 }
 }
 $out3=json_decode('"'.$out2.'"');
+echo date("Y-m-d H:i:s")."<br>";
 echo $out3;
-
 echo "</body></html>"
 ?>
