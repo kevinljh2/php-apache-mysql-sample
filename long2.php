@@ -9,7 +9,7 @@ print('<!DOCTYPE HTML>
 	<meta name="viewport" content="width=device-width, user-scalable=no" />
 </head>
 <body bgcolor="black">
-<font color="#C0C0C0">');
+<font size="5"><font color="#C0C0C0">');
 
 $url="http://lt.v1bet.net/pt/mem/ajax/casino/external/public/69?lang=zh-cn";
 $ch = curl_init(); 
@@ -37,5 +37,5 @@ $out2.=$out1."<br>";
 $out3=json_decode('"'.$out2.'"');
 echo date("Y-m-d H:i:s")."<br>";
 echo $out3;
-echo "</body></html>"
+echo "</font></body></html>"
 ?>
