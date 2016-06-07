@@ -1,5 +1,5 @@
 <?
-$url="http://lt.bbbaiu.com/pt/mem/ajax/casino/external/public/3819831?lang=zh-cn";
+$url="http://lt.v1bet.net/pt/mem/ajax/casino/external/public/69?lang=zh-cn";
 $ch = curl_init(); 
 curl_setopt ($ch, CURLOPT_URL, $url); 
 curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); 
