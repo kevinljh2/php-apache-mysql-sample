@@ -4,7 +4,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 print('<!DOCTYPE HTML>
 <html>
 <head>
-    <title>Long</title>
+    <title>Long2</title>
 	<meta http-equiv=Content-Type content="text/html;charset=utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no" />
 </head>
