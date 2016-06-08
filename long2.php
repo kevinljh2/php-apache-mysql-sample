@@ -10,7 +10,7 @@ print('<!DOCTYPE HTML>
 </head>
 <body bgcolor="black">
 <font size="5"><font color="#C0C0C0">');
-$soundbool="off";
+
 $url="http://lt.v1bet.net/pt/mem/ajax/casino/external/public/69?lang=zh-cn";
 $ch = curl_init(); 
 curl_setopt ($ch, CURLOPT_URL, $url); 
@@ -34,19 +34,9 @@ $out1=$name1.",".$nametz.",".$count;
 $out2.=$out1."<br>";
 }
 
-if ($count>=9)
-{
-$soundbool="on";	
-}
-
 }
 $out3=json_decode('"'.$out2.'"');
 echo date("Y-m-d H:i:s")."<br>";
 echo $out3;
-if ($soundbool=="on")
-{
-$br5='<audio autoplay="autoplay"><source src="http://kevinljh22.wpblog.jp/pg.mp3" type="audio/mpeg"></audio>';
-}else
-{$br5="";}
-echo $br5."</font></body></html>"
+echo "</font></body></html>"
 ?>
