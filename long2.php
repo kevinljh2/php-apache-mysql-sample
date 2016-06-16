@@ -10,7 +10,8 @@ print('<!DOCTYPE HTML>
 </head>
 <body bgcolor="black">
 <font size="5"><font color="#C0C0C0">');
-
+$oldtime=time();
+echo date("y-m-d H:i:s")."≈";
 $url="http://lt.v1bet.net/pt/mem/ajax/casino/external/public/69?lang=zh-cn";
 $ch = curl_init(); 
 curl_setopt ($ch, CURLOPT_URL, $url); 
@@ -36,7 +37,8 @@ $out2.=$out1."<br>";
 
 }
 $out3=json_decode('"'.$out2.'"');
-echo date("Y-m-d H:i:s")."<br>";
+$timecha=time()-$oldtime;
+echo $timecha."s dc<br>";
 echo $out3;
 echo "</font></body></html>"
 ?>
