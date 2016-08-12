@@ -4,7 +4,7 @@ ini_set('date.timezone','Asia/Shanghai');
 print('<!DOCTYPE HTML>
 <html>
 <head>
-	<title>hk-Tiebatest</title>
+	<title>Dao-Tieba</title>
 	<meta http-equiv=Content-Type content="text/html;charset=utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no" />
 </head>
