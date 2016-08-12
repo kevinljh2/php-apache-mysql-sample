@@ -1,5 +1,4 @@
 <?
-ini_set('user_agent','Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727;)'); 
 error_reporting(E_ALL ^ E_NOTICE);
 ini_set('date.timezone','Asia/Shanghai');
 print('<!DOCTYPE HTML>
@@ -12,13 +11,10 @@ print('<!DOCTYPE HTML>
 <body bgcolor="black">
 <font color="#C0C0C0">');
 echo date('H:i:s');
-
 	$iddata=$_GET["getid"];
 	$id=explode(",",$iddata);
-
 $data1=null;
 $handle=null;
-
 $handle=null;
 $handle = @fopen("tiebaid.txt", "r");
 $ii=0;
@@ -35,52 +31,45 @@ if ($handle) {
     }
     fclose($handle);
 }
-
 FOR ($i =0; $i <count($id); $i++) 
 {
 $oldnew="";	
-$idurl="http://tieba.baidu.com/mo/q---48F9208AB5F8EE681F4B142F8BE942EE%3AFG%3D1--1-1-0--2--wapp_1439010894807_308/m?kz=".$id[$i]."&see_lz=1";
+$idurl="http://tieba.baidu.com/mo/q---48F9208AB5F8EE681F4B142F8BE942EE%3AFG%3D1--1-1-0--2--wapp_1439010894807_308/m?pnum=1&kz=".$id[$i]."&see_lz=1";
 $data1 = file_get_contents($idurl);
-
-//$ch = curl_init(); 
-//curl_setopt ($ch, CURLOPT_URL, $idurl); 
-//curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); 
-//curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT,10); 
-//$data1 = curl_exec($ch); 
-
-
+/*  $ch = curl_init(); 
+curl_setopt ($ch, CURLOPT_URL, $idurl); 
+curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); 
+curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT,10); 
+$data1 = curl_exec($ch);   */ 
 $ad_title1=strpos($data1,'<title>',0);
 $ad_title2=strpos($data1,'>',$ad_title1);
-$ad_title3=strpos($data1,'<',$ad_title2+1);
+$ad_title3=strpos($data1,'</title>',$ad_title2+1);
 $str_title=substr($data1,$ad_title2+1,$ad_title3-$ad_title2-1);
-
-$ad_lounum1=strpos($data1,'第1/',$ad_title3);
-$ad_lounum2=strpos($data1,'页',$ad_lounum1);
+$ad_lounum1=strpos($data1,'pnum',$ad_title3);
+$ad_lounum2=strpos($data1,'value=',$ad_lounum1+1);
+$ad_lounum3=strpos($data1,'/><input',$ad_lounum2+1);
 $str_lounum="";
 if ($ad_lounum1>0)
 {
-$str_lounum=substr($data1,$ad_lounum1+5,$ad_lounum2-$ad_lounum1-5);
+$str_lounum=substr($data1,$ad_lounum2+7,$ad_lounum3-$ad_lounum2-8);
 }else
 {
 $str_lounum="1";
 }
 $str_newurl="";
 $str_newurl="http://tieba.baidu.com/mo/q---48F9208AB5F8EE681F4B142F8BE942EE%3AFG%3D1--1-1-0--2--wapp_1439010894807_308/m?pnum=".$str_lounum."&kz=".$id[$i]."&see_lz=1";
-
 $data1="";
 $data1= file_get_contents($str_newurl);
-
-//$ch = curl_init(); 
-//curl_setopt ($ch, CURLOPT_URL, $str_newurl); 
-//curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); 
-//curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT,10); 
-//$data1 = curl_exec($ch); 
-
+$ch = curl_init(); 
+/* curl_setopt ($ch, CURLOPT_URL, $str_newurl); 
+curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); 
+curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT,10);  
+$data1 = curl_exec($ch); */
 $ad_lastlou1=strrpos($data1,'<div class="i">',0);
-$ad_lastlou2=strpos($data1,'楼.',$ad_lastlou1);
-$ad_lastlou3=strpos($data1,'>',$ad_lastlou1+1);
-$str_lastlou=substr($data1,$ad_lastlou3+1,$ad_lastlou2-$ad_lastlou3-1);
-
+$ad_lastlou2=strpos($data1,'>',$ad_lastlou1+1);
+$ad_lastlou3=strpos($data1,'це╝.',$ad_lastlou2+1);
+$str_lastlou=substr($data1,$ad_lastlou2+1,$ad_lastlou3-$ad_lastlou2-1);
+//echo "////".$str_lastlou."///////";
 $gehang="";
 if ($str_lastlou>$olou[$i])
 {
@@ -88,8 +77,7 @@ if ($str_lastlou>$olou[$i])
 	$newfiletext.="#".$str_lastlou."#".$str_title."#".$str_lounum."#".$id[$i]."\r\n";
 	$gehang="--------------------------------------\r\n";
 }
-
-$jieguo.="<a href='http://tieba.baidu.com/mo/m?kz=".$id[$i]."&see_lz=1' style='text-decoration:none;color:white' target='_blank'>".$id[$i]."/".$str_title."/".$str_lastlou."楼/".$str_lounum."页".$oldnew."</a>"."<br>";
+$jieguo.="<a href='http://tieba.baidu.com/mo/m?kz=".$id[$i]."&see_lz=1' style='text-decoration:none;color:white' target='_blank'>".$id[$i]."/".$str_title."/".$str_lastlou."Floor/".$str_lounum."Page".$oldnew."</a>"."<br>";
 $jieguo2.=$id[$i]."#".$str_lastlou."#".$str_lounum."\r\n";
 }
 $jieguo3=$newfiletext.$gehang;
