@@ -35,7 +35,8 @@ FOR ($i =0; $i <count($id); $i++)
 {
 $oldnew="";	
 $idurl="http://tieba.baidu.com/mo/q---48F9208AB5F8EE681F4B142F8BE942EE%3AFG%3D1--1-1-0--2--wapp_1439010894807_308/m?pnum=1&kz=".$id[$i]."&see_lz=1";
-$data1 = file_get_contents($idurl);
+//$data1 = file_get_contents($idurl);
+$data1=fopen($idurl,"r");
 /*  $ch = curl_init(); 
 curl_setopt ($ch, CURLOPT_URL, $idurl); 
 curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); 
@@ -59,9 +60,11 @@ $str_lounum="1";
 $str_newurl="";
 $str_newurl="http://tieba.baidu.com/mo/q---48F9208AB5F8EE681F4B142F8BE942EE%3AFG%3D1--1-1-0--2--wapp_1439010894807_308/m?pnum=".$str_lounum."&kz=".$id[$i]."&see_lz=1";
 $data1="";
-$data1= file_get_contents($str_newurl);
-$ch = curl_init(); 
-/* curl_setopt ($ch, CURLOPT_URL, $str_newurl); 
+$data1=$data1=fopen($str_newurl,"r");
+//$data1= file_get_contents($str_newurl);
+
+/*$ch = curl_init(); 
+ curl_setopt ($ch, CURLOPT_URL, $str_newurl); 
 curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); 
 curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT,10);  
 $data1 = curl_exec($ch); */
