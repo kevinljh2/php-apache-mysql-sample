@@ -6,7 +6,7 @@ FROM daocloud.io/php:5.6-apache
 RUN docker-php-ext-install pdo_mysql
 
 # /var/www/html/ 为 Apache 目录
-
+COPY /usr/local/etc/php/php.ini /var/www/html/
 COPY  . /var/www/html/
 WORKDIR /var/www/html
 RUN chmod 777 chalong.txt
