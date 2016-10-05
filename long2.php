@@ -40,5 +40,5 @@ $out3=json_decode('"'.$out2.'"');
 $timecha=time()-$oldtime;
 echo $timecha."s dc<br>";
 echo $out3;
-echo "</font></body></html>"
+echo "</font></body></html>";
 ?>
